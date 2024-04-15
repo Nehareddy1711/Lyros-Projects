@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        body{
+            background-color: green;
+        }
+        #main{
+            text-align: center;
+            background-color: azure;
+            width: 400px;
+            margin-top: 170px;
+        }
+        button{
+            width: 180px;
+            background-color: green;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <center>
+    <div id="main">
+        <h2>SignUp</h2>
+        <p>Please enter your credentials to login</p>
+        <input type="text" placeholder="UserName" id="t"><br><br>
+        <input type="password" placeholder="Password" id="p"><br><br>
+        <button onclick="signUp()">Signup</button>
+        <p><a href="#">Not registered?</a> Create an account</p>
+    </div>
+    </center>
+    <script>
+        let name;
+        let password;
+        let signUp = ()=>{
+            name=t.value;
+            password=p.value;
+            main.innerHTML=`
+            <h2>LOGIN</h2>
+            <h4>Enter your Details</h4>
+            <input type="text" placeholder="UserName" id="t2"><br><br> 
+            <input type="password" placeholder="Password" id="p2"><br><br>
+            <button onclick="check()">Login</button>            
+            `
+        }
+        let check=()=>{
+            if(name==t2.value && password==p2.value){
+                alert("Login Successfull");
+            }
+            else{
+                alert("Invalid credentials");
+            }
+        }
+    </script>
+</body>
+</html>

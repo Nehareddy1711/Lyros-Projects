@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Basics</title>
+    <style>
+        input{
+            display:block;
+            margin:10px;
+        }
+        button{
+            margin:10px
+        }
+    </style>
+</head>
+<body>
+    <fieldset>
+    <legend>Registration Form</legend>
+    <form>
+        <input type="text" name="name" placeholder="Enter your Name" id="name">
+
+        <input type="text" name="email" placeholder="Enter your Email " id="email">
+
+        <input type="password" name="password" placeholder="Enter your password" id="password">
+
+        <input type="password" name="confirm-password" placeholder="confirm your password" id="confirm-password">
+
+        <button type="submit">Submit</button>
+</form>
+</fieldset>
+<div class="output">
+    <h1>User Details</h1>
+</div>
+<script>
+    let form=document.querySelector("form");
+    let name_box=document.querySelector("#name");
+    let email_box=document.querySelector("#email");
+    let password_box=document.querySelector("#password");
+    let confirm_password_box=document.querySelector("#confirm-password");
+    let btn=document.querySelector("button");
+    let output=document.querySelector(".output");
+
+    form.addEventListener("submit",validateForm)
+
+    function validateForm(eventDetails){
+        eventDetails.preventDefault();
+        let name=name_box.value;
+        let email=email_box.value;
+        let password=password_box.value;
+        let confirm_password=confirm_password_box.value
+        console.log(name,email,password,confirm_password);
+        output.innerText=`Name:${name} Email:${email} Password:${password} Confirm Password:${confirm_password}`;
+        
+let userData={
+    name:name,
+    email:email,
+    password:password
+}
+
+let userDataJson=JSON.stringify(userData);
+  console.log(userDataJson)
+  localStorage.setItem("user",userDataJson);
+    }
+</script>
+</body>
+</html>
